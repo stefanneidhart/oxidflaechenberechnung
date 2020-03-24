@@ -147,4 +147,4 @@ class Basket extends Basket_parent
 	     oxSession::setVar( $sNewKey, $bitemsdata );
 	}	
     }    
-}
+} 

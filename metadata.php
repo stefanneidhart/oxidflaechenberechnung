@@ -14,23 +14,23 @@ $sMetadataVersion = '2.0';
 $aModule = array(
 	'id' => 'oxidflaechenberechnung',
 	'title' => array(
-		'de' => 'OXID6 Flächenberechung mit Staffelpreis',
-		'en' => 'OXID6 Flächenberechung mit Staffelpreis',
+		'de' => 'Flächenberechung',
+		'en' => 'Flächenberechung',
 	),
 	'description' => array(
-		'de' => '<h2>OXID6 Flächenberechung mit Staffelpreis</h2>',
-		'en' => '<h2>OXID6 Flächenberechung mit Staffelpreis</h2>',
+		'de' => '<h2>Flächenberechung</h2>',
+		'en' => '<h2>Flächenberechung</h2>',
 	),
 	'thumbnail' => 'calc.png',
-	'version' => '1.0.0',
+	'version' => '1.0.1',
 	'author' => 'Stefan Neidhart',
 	'url' => 'https://www.stefanneidhart.de',
 	'email' => 'info@stefanneidhart.de',
 	'extend' => array(
 		//\OxidEsales\Eshop\Core\ViewConfig::class => \sn\oxidflaechenberechnung\Core\ViewConfig::class,
-		\OxidEsales\Eshop\Application\Model\Article::class => \sn\oxidflaechenberechnung\Model\Article::class,
-		\OxidEsales\Eshop\Application\Model\Basket::class => \sn\oxidflaechenberechnung\Model\Basket::class,
-		\OxidEsales\Eshop\Application\Model\BasketItem::class => \sn\oxidflaechenberechnung\Model\BasketItem::class,
+		\OxidEsales\Eshop\Application\Model\Article::class	=> \sn\oxidflaechenberechnung\Model\Article::class,
+		\OxidEsales\Eshop\Application\Model\Basket::class	=> \sn\oxidflaechenberechnung\Model\Basket::class,
+		\OxidEsales\Eshop\Application\Model\BasketItem::class	=> \sn\oxidflaechenberechnung\Model\BasketItem::class
 		//\OxidEsales\Eshop\Application\Model\OrderArticle::class => \sn\oxidflaechenberechnung\Model\OrderArticle::class,
 	),
 	'controllers' => array(
