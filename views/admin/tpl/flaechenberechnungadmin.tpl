@@ -83,7 +83,7 @@
 		<tr>
 	    <td>Gewicht in Gramm je qm</td>
 	    <td>				
-		<input type="text" class="editinput" size="20" maxlength="[{$edit->oxarticles__flaeche_gewicht->fldmax_length}]" name="editval[oxarticles__flaeche_gewicht]" value="[{$edit->oxarticles__flaeche_breite_max->value}]"  [{ $readonly }]>
+		<input type="text" class="editinput" size="20" maxlength="[{$edit->oxarticles__flaeche_gewicht->fldmax_length}]" name="editval[oxarticles__flaeche_gewicht]" value="[{$edit->oxarticles__flaeche_gewicht->value}]"  [{ $readonly }]>
 	    </td>
 	</tr>
 	<tr>
