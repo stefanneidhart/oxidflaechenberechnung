@@ -29,8 +29,8 @@ $aModule = array(
 	'extend' => array(
 		//\OxidEsales\Eshop\Core\ViewConfig::class => \sn\oxidflaechenberechnung\Core\ViewConfig::class,
 		\OxidEsales\Eshop\Application\Model\Article::class	=> \sn\oxidflaechenberechnung\Model\Article::class,
-		\OxidEsales\Eshop\Application\Model\Basket::class	=> \sn\oxidflaechenberechnung\Model\Basket::class,
-//\OxidEsales\Eshop\Application\Model\BasketItem::class	=> \sn\oxidflaechenberechnung\Model\BasketItem::class
+		\OxidEsales\Eshop\Application\Model\Basket::class	=> \sn\oxidflaechenberechnung\Model\Basket::class,  
+		\OxidEsales\Eshop\Application\Model\BasketItem::class	=> \sn\oxidflaechenberechnung\Model\BasketItem::class
 		//\OxidEsales\Eshop\Application\Model\OrderArticle::class => \sn\oxidflaechenberechnung\Model\OrderArticle::class,
 	),
 	'controllers' => array(
