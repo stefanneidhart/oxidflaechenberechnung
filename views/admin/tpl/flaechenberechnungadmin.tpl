@@ -71,7 +71,7 @@
 	<tr>
 	    <td>Maximale-Höhe</td>
 	    <td>				
-		<input type="text" class="editinput" size="20" maxlength="[{$edit->oxarticles__flaeche_hoehe_max->fldmax_length}]" name="editval[oxarticles__flaeche_hoehe_max]" value="[{$edit->oxarticles_flaeche_hoehe_max->value}]"  [{ $readonly }]>
+		<input type="text" class="editinput" size="20" maxlength="[{$edit->oxarticles__flaeche_hoehe_max->fldmax_length}]" name="editval[oxarticles__flaeche_hoehe_max]" value="[{$edit->oxarticles__flaeche_hoehe_max->value}]"  [{ $readonly }]>
 	    </td>
 	</tr>	
 	<tr>
