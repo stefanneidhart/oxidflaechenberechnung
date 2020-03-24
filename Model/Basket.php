@@ -24,8 +24,8 @@ class Basket extends Basket_parent
 		 $aPersParam=$bitemsdata;
 	    }
 	}
-
-	$areacalc_active = oxConfig::getParameter('areacalc_active');
+$areacalc_active = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter('flaeche_aktiv');
+	//$areacalc_active = oxConfig::getParameter('flaeche_aktiv');
 	$calcnewflag = false;
 	if (!empty($areacalc_active) && $areacalc_active == '1') {
 	    $aPersParam['areacalc_active'] = '1';
@@ -35,10 +35,7 @@ class Basket extends Basket_parent
 	}
 
 	$sItemId = $this->getItemKey($sProductID, $aSel, $aPersParam, $blBundle);
-	if (!empty($areacalc_active) && $areacalc_active == '1') {
-	    //   $sItemId = $sItemId . '++' . $aPersParam['breite'] . $aPersParam['hoehe'];
-	}
-
+	
 	if (!empty($areacalc_active) && $areacalc_active == '1') {
 	    oxSession::setVar($sItemId, $aPersParam);
 	}
