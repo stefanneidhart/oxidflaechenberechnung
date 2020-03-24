@@ -1,0 +1,32 @@
+{
+    "name":        "sn/oxidflaechenberechnung",
+    "description": "",
+    "type":        "oxideshop-module",
+    "keywords":    [
+        "oxid",
+        "modules",
+        "eShop",
+        "Editor"
+    ],
+    "authors":     [
+        {
+            "name":  "Stefan Neidhart",
+            "email": "info@stefanneidhart.de"
+        }
+    ],
+    "extra":       {
+        "oxideshop": {
+            "target-directory": "sn/oxidflaechenberechnung"
+        }
+    },
+    "require":     {
+        "php": ">=7.1"
+    },
+    "autoload":    {
+        "psr-4": {
+            "sn\\oxid6AreacalcModule\\": "../../../source/modules/sn/oxidflaechenberechnung"
+        }
+    }
+}
+
+
