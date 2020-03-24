@@ -9,12 +9,14 @@
 [{assign var="Preis" value=$oDetailsProduct->getPrice()}]
 [{oxscript include=$oViewConf->getModuleUrl("oxidflaechenberechnung", "out/src/js/sn_calc.js") }]
 
+[{$Preis|var_dump}]
+
 <script type="text/javascript">
 <!--
     CH.setMaxH('[{$MaxH}]');
     CH.setMaxB('[{$MaxB}]');
     CH.setMaxGewicht('[{$Gewicht}]');
-    CH.setPreis('[{$Preis}]');
+    CH.setPreis('10');
     CH.init();
 //-->
 </script>
