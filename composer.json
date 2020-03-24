@@ -24,7 +24,7 @@
     },
     "autoload":    {
         "psr-4": {
-            "sn\\oxid6AreacalcModule\\": "../../../source/modules/sn/oxidflaechenberechnung"
+            "sn\\oxidflaechenberechnung\\": "../../../source/modules/sn/oxidflaechenberechnung"
         }
     }
 }
