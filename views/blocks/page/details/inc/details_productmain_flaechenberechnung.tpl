@@ -6,7 +6,7 @@
 [{assign var="MaxH" value=$oDetailsProduct->getMaxH()}]
 [{assign var="MaxB" value=$oDetailsProduct->getMaxB()}]
 [{assign var="Gewicht" value=$oDetailsProduct->getMaxB()}]
-[{assign var="Preis" value=$oDetailsProduct->getPrice()}]
+[{assign var="Preis" value=$oDetailsProduct->getPrice()->getPrice()}]
 [{oxscript include=$oViewConf->getModuleUrl("oxidflaechenberechnung", "out/src/js/sn_calc.js") }]
 
 [{$Preis|var_dump}]
@@ -16,7 +16,7 @@
     CH.setMaxH('[{$MaxH}]');
     CH.setMaxB('[{$MaxB}]');
     CH.setMaxGewicht('[{$Gewicht}]');
-    CH.setPreis('10');
+    CH.setPreis('[{$Preis}]');
     CH.init();
 //-->
 </script>
