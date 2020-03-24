@@ -1,8 +1,9 @@
-var CalcHandler = function (CalcTypes)
+var CalcHandler = function ()
 {
     this.gewicht = 0;
     this.maxH = 0;
     this.maxB = 0;
+     this.preis = 0;
 
     this.init = function ()
     {
@@ -16,6 +17,7 @@ var CalcHandler = function (CalcTypes)
 	});
 
 	$('#hoehe').change();
+	
     }
 
     this.calcArea = function ()
@@ -65,11 +67,11 @@ var CalcHandler = function (CalcTypes)
     }
 
     this.setPrice = function (price) {
-	$('#productPrice').html('<span><span class="price-from"></span><span class="price">' + price + ' €</span><span class="price-markup">*</span><span class="d-none"> <span itemprop="price">' + price + ' €</span></span></span>');
+	$('#productPrice').html('<span><span class="price-from"></span><span class="price">' + price.toFixed(2) + ' €</span><span class="price-markup">*</span><span class="d-none"> <span itemprop="price">' + price + ' €</span></span></span>');
     }
 
     this.setUnitPrice = function (price) {
-	$('#productPriceUnit').html(price + ' € je m²');
+	$('#productPriceUnit').html(price.toFixed(2) + ' € je m²');
     }
 
     this.calcPrice = function ()
@@ -100,7 +102,12 @@ var CalcHandler = function (CalcTypes)
     }
 };
 
-$(document).ready(function ()
-{
-    var CH = new CalcHandler();
-});
+    $(document).ready(function ()
+    {
+	var CH = new CalcHandler();
+	CH.setMaxH(MaxH);
+	CH.setMaxB(MaxB);
+	CH.setMaxGewicht(Gewicht);
+	CH.setPreis(Preis);
+	CH.init();
+    });

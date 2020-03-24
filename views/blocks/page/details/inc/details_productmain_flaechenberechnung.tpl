@@ -5,18 +5,22 @@
 [{oxstyle include=$oViewConf->getModuleUrl("oxidflaechenberechnung", "out/src/css/sn_calc.css") }]
 [{assign var="MaxH" value=$oDetailsProduct->getMaxH()}]
 [{assign var="MaxB" value=$oDetailsProduct->getMaxB()}]
-[{assign var="Gewicht" value=$oDetailsProduct->getMaxB()}]
+[{assign var="Gewicht" value=$oDetailsProduct->getGewicht()}]
 [{assign var="Preis" value=$oDetailsProduct->getPrice()}]
 [{oxscript include=$oViewConf->getModuleUrl("oxidflaechenberechnung", "out/src/js/sn_calc.js") }]
 
 
 <script type="text/javascript">
 <!--
-    CH.setMaxH('[{$MaxH}]');
-    CH.setMaxB('[{$MaxB}]');
-    CH.setMaxGewicht('[{$Gewicht}]');
-    CH.setPreis('[{$Preis->getPrice()}]');
-    CH.init();
+
+
+	var MaxH = [{$MaxH}];
+	var MaxB = [{$MaxB}];
+	var Gewicht = [{$Gewicht}];
+	var Preis = [{$Preis->getPrice()}];
+
+  
+
 //-->
 </script>
 
