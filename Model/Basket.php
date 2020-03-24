@@ -25,12 +25,12 @@ class Basket extends Basket_parent
 	    }
 	}
 $areacalc_active = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter('flaeche_aktiv');
-	//$areacalc_active = oxConfig::getParameter('flaeche_aktiv');
+	//$areacalc_active = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter('flaeche_aktiv');
 	$calcnewflag = false;
 	if (!empty($areacalc_active) && $areacalc_active == '1') {
 	    $aPersParam['areacalc_active'] = '1';
-	    $aPersParam['breite'] = oxConfig::getParameter('breite');
-	    $aPersParam['hoehe'] = oxConfig::getParameter('hoehe');
+	    $aPersParam['breite'] = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter('breite');
+	    $aPersParam['hoehe'] = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter('hoehe');
 	    $calcnewflag = true;
 	}
 
