@@ -38,7 +38,7 @@ $aModule = array(
 	),
 	'files' => array(),
 	'templates' => array(
-		'flaechenberechnungadmin.tpl' => 'sn/oxidflaechenberechnung/views/admin/tpl/articlecalcsn.tpl',
+		'flaechenberechnungadmin.tpl' => 'sn/oxidflaechenberechnung/views/admin/tpl/flaechenberechnungadmin.tpl',
 		//'ajaxareacalc.tpl' => 'oxid6-areacalc-module/out/tpl/page/details/inc/ajaxareacalc.tpl',
 	),
 	'blocks' => array(
