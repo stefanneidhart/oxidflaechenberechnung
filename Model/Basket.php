@@ -1,8 +1,8 @@
 <?php
+
 namespace sn\oxidflaechenberechnung\Model;
 
-class Basket extends Basket_parent
-{
+class Basket extends Basket_parent {
 
     public function addToBasket($sProductID, $dAmount, $aSel = null, $aPersParam = null, $blOverride = false, $blBundle = false, $sOldBasketItemId = null) {
 	// enabled ?
@@ -18,20 +18,20 @@ class Basket extends Basket_parent
 		$this->setCatChangeWarningState(false);
 	    }
 	}
-	
-		$session = \OxidEsales\Eshop\Core\Registry::getSession();
 
-		if ($sOldBasketItemId != null) {
-			//  $bitemsdata = oxSession::getVar($sOldBasketItemId);
-			$bitemsdata = $session->getVariable($sOldBasketItemId);
+	$session = \OxidEsales\Eshop\Core\Registry::getSession();
 
-			if ($bitemsdata != null) {
-				$aPersParam = $bitemsdata;
-			}
-		}
-	
-	
-$areacalc_active = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter('flaeche_aktiv');
+	if ($sOldBasketItemId != null) {
+	    //  $bitemsdata = oxSession::getVar($sOldBasketItemId);
+	    $bitemsdata = $session->getVariable($sOldBasketItemId);
+
+	    if ($bitemsdata != null) {
+		$aPersParam = $bitemsdata;
+	    }
+	}
+
+
+	$areacalc_active = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter('flaeche_aktiv');
 	//$areacalc_active = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter('flaeche_aktiv');
 	$calcnewflag = false;
 	if (!empty($areacalc_active) && $areacalc_active == '1') {
@@ -42,16 +42,15 @@ $areacalc_active = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParam
 	}
 
 	$sItemId = $this->getItemKey($sProductID, $aSel, $aPersParam, $blBundle);
-	
+
 	if (!empty($areacalc_active) && $areacalc_active == '1') {
-	   // oxSession::setVar($sItemId, $aPersParam);
+	    // oxSession::setVar($sItemId, $aPersParam);
 	    $session->setVariable($sItemId, $aPersParam);
-	    
 	}
 
 	if ($sOldBasketItemId && ( strcmp($sOldBasketItemId, $sItemId) != 0 )) {
 
-	    
+
 
 	    if (isset($this->_aBasketContents[$sItemId])) {
 		// we are merging, so params will just go to the new key
@@ -79,7 +78,7 @@ $areacalc_active = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParam
 		//validate amount
 		//possibly throws exception
 		$this->_aBasketContents[$sItemId]->setAmount($dAmount, $blOverride, $sItemId);
-		 $this->_aBasketContents[$sItemId]->calcWeight($dAmount);
+		$this->_aBasketContents[$sItemId]->calcWeight($dAmount);
 	    } catch (oxOutOfStockException $oEx) {
 		// rethrow later
 	    }
@@ -104,8 +103,8 @@ $areacalc_active = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParam
 		// rethrow later
 		$blRemoveItem = true;
 	    }
-	   
-	    $this->_aBasketContents[$sItemId] = $oBasketItem; 
+
+	    $this->_aBasketContents[$sItemId] = $oBasketItem;
 	}
 
 	//in case amount is 0 removing item
@@ -133,26 +132,24 @@ $areacalc_active = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParam
 	// returning basket item object
 	return $this->_aBasketContents[$sItemId];
     }
-   
-    protected function _changeBasketItemKey($sOldKey, $sNewKey, $value = null)
-    {
-        reset($this->_aBasketContents);
-        $iOldKeyPlace = 0;
-        while (key($this->_aBasketContents) != $sOldKey && next($this->_aBasketContents)) {
-            ++$iOldKeyPlace;
-        }
-        $aNewCopy = array_merge(
-            array_slice($this->_aBasketContents, 0, $iOldKeyPlace, true),
-            array($sNewKey => $value),
-            array_slice($this->_aBasketContents, $iOldKeyPlace+1, count($this->_aBasketContents)-$iOldKeyPlace, true)
-        );
-        $this->_aBasketContents = $aNewCopy;
-	
+
+    protected function _changeBasketItemKey($sOldKey, $sNewKey, $value = null) {
+	reset($this->_aBasketContents);
+	$iOldKeyPlace = 0;
+	while (key($this->_aBasketContents) != $sOldKey && next($this->_aBasketContents)) {
+	    ++$iOldKeyPlace;
+	}
+	$aNewCopy = array_merge(
+		array_slice($this->_aBasketContents, 0, $iOldKeyPlace, true), array($sNewKey => $value), array_slice($this->_aBasketContents, $iOldKeyPlace + 1, count($this->_aBasketContents) - $iOldKeyPlace, true)
+	);
+	$this->_aBasketContents = $aNewCopy;
+
 	//$bitemsdata = oxSession::getVar($sOldKey);
 	$bitemsdata = $session->getVariable($sOldKey);
-	if($bitemsdata != null) {
-	   //  oxSession::setVar( $sNewKey, $bitemsdata );
-	     $session->setVariable($sNewKey, $bitemsdata);
-	}	
-    }    
-} 
+	if ($bitemsdata != null) {
+	    //  oxSession::setVar( $sNewKey, $bitemsdata );
+	    $session->setVariable($sNewKey, $bitemsdata);
+	}
+    }
+
+}
