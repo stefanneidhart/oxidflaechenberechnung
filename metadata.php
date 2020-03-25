@@ -50,7 +50,7 @@ $aModule = array(
 		array(
 			'template' => 'page/checkout/inc/basketcontents_list.tpl',
 			'block' => 'checkout_basketcontents_basketitem_persparams',
-			'file' => 'views/blocks/page/checkout/inc/checkout_basketcontents_basketitem_titlenumber.tpl'
+			'file' => 'views/blocks/checkout/inc/checkout_basketcontents_basketitem_persparams.tpl'
 		),
 		/*array(
 			'template' => 'page/account/order.tpl',

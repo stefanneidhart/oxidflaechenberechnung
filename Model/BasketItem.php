@@ -46,7 +46,8 @@ class BasketItem extends BasketItem_parent {
 
 	    $breite = $aPersParams['breite'];
 	    $hoehe = $aPersParams['hoehe'];
-	    $preis = $oArticle->getPrice();
+	    $preisObj = $oArticle->getPrice();
+	    $preis = $preisObj->getPrice();
 	    $newPrice = ($breite * $hoehe) * $preis;
 	    	    
 	    return $newPrice;
@@ -59,6 +60,7 @@ class BasketItem extends BasketItem_parent {
 
 	$aPersParams = $this->getPersParams();
 
+	
 	if ($params !== null || $aPersParams['flaeche_aktiv'] == '1') {
 	    $newPrice = $this->calcAPrice($params);
 

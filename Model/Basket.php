@@ -35,7 +35,7 @@ $areacalc_active = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParam
 	//$areacalc_active = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter('flaeche_aktiv');
 	$calcnewflag = false;
 	if (!empty($areacalc_active) && $areacalc_active == '1') {
-	    $aPersParam['areacalc_active'] = '1';
+	    $aPersParam['flaeche_aktiv'] = '1';
 	    $aPersParam['breite'] = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter('breite');
 	    $aPersParam['hoehe'] = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter('hoehe');
 	    $calcnewflag = true;
