@@ -18,12 +18,19 @@ class Basket extends Basket_parent
 		$this->setCatChangeWarningState(false);
 	    }
 	}
-	if ($sOldBasketItemId != null) {
-	    $bitemsdata = oxSession::getVar($sOldBasketItemId);
-	    if ($bitemsdata != null) {
-		 $aPersParam=$bitemsdata;
-	    }
-	}
+	
+		$session = \OxidEsales\Eshop\Core\Registry::getSession();
+
+		if ($sOldBasketItemId != null) {
+			//  $bitemsdata = oxSession::getVar($sOldBasketItemId);
+			$bitemsdata = $session->getVariable($sOldBasketItemId);
+
+			if ($bitemsdata != null) {
+				$aPersParam = $bitemsdata;
+			}
+		}
+	
+	
 $areacalc_active = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter('flaeche_aktiv');
 	//$areacalc_active = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter('flaeche_aktiv');
 	$calcnewflag = false;
@@ -37,7 +44,9 @@ $areacalc_active = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParam
 	$sItemId = $this->getItemKey($sProductID, $aSel, $aPersParam, $blBundle);
 	
 	if (!empty($areacalc_active) && $areacalc_active == '1') {
-	    oxSession::setVar($sItemId, $aPersParam);
+	   // oxSession::setVar($sItemId, $aPersParam);
+	    $session->setVariable($sItemId, $aPersParam);
+	    
 	}
 
 	if ($sOldBasketItemId && ( strcmp($sOldBasketItemId, $sItemId) != 0 )) {
@@ -139,9 +148,11 @@ $areacalc_active = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParam
         );
         $this->_aBasketContents = $aNewCopy;
 	
-	$bitemsdata = oxSession::getVar($sOldKey);
+	//$bitemsdata = oxSession::getVar($sOldKey);
+	$bitemsdata = $session->getVariable($sOldKey);
 	if($bitemsdata != null) {
-	     oxSession::setVar( $sNewKey, $bitemsdata );
+	   //  oxSession::setVar( $sNewKey, $bitemsdata );
+	     $session->setVariable($sNewKey, $bitemsdata);
 	}	
     }    
 } 
