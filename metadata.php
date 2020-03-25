@@ -22,7 +22,7 @@ $aModule = array(
 		'en' => '<h2>Flächenberechung</h2>',
 	),
 	'thumbnail' => 'calc.png',
-	'version' => '1.0.3',
+	'version' => '1.0.6',
 	'author' => 'Stefan Neidhart',
 	'url' => 'https://www.stefanneidhart.de',
 	'email' => 'info@stefanneidhart.de',
@@ -39,7 +39,6 @@ $aModule = array(
 	'files' => array(),
 	'templates' => array(
 		'flaechenberechnungadmin.tpl' => 'sn/oxidflaechenberechnung/views/admin/tpl/flaechenberechnungadmin.tpl',
-		//'ajaxareacalc.tpl' => 'oxid6-areacalc-module/out/tpl/page/details/inc/ajaxareacalc.tpl',
 	),
 	'blocks' => array(
 		array(
@@ -52,10 +51,10 @@ $aModule = array(
 			'block' => 'checkout_basketcontents_basketitem_persparams',
 			'file' => 'views/blocks/checkout/inc/checkout_basketcontents_basketitem_persparams.tpl'
 		),
-		/*array(
+		array(
 			'template' => 'page/account/order.tpl',
-			'block' => 'account_order_history',
-			'file' => 'views/blocks/account/account_order_history.tpl'
+			'block' => 'account_order_history_cart_items',
+			'file' => 'views/blocks/account/account_order_history_cart_items.tpl'
 		),
 		array(
 			'template' => 'email/html/order_owner.tpl',
@@ -76,6 +75,6 @@ $aModule = array(
 			'template' => 'email/plain/order_cust.tpl',
 			'block' => 'email_plain_order_cust_basketitem',
 			'file' => 'views/blocks/email/plain/email_plain_order_cust_basketitem.tpl'
-		),*/
+		),
 	),
 );

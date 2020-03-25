@@ -1,17 +1,11 @@
 [{assign var=aParams value=$basketitem->getPersParams()}]
 
-[{assign var=aParams value=$basketitem->getPersParams()}]
-
-[{$aParams.breite}]
-[{$aParams.hoehe}]
-[{$aParams.flaeche_aktiv}]
-
 [{if $aParams.flaeche_aktiv == '1' }]
 
 <p class="persparamBox">
-    [{assign var=aMaterial value=$basketitem->getMaterial($aParams.MaterialTypesSelect)}]
-    <strong>Breite: </strong> [{$aParams.breite}]<br />
-    <strong>Höhe: </strong> [{$aParams.hoehe}]
+    <strong>Breite: </strong> [{$aParams.breite}] m<br />
+    <strong>Höhe: </strong> [{$aParams.hoehe}] m<br />
+    <strong>Fläche: </strong> [{$aParams.hoehe*$aParams.breite}] m²
 </p>
 [{else}]
 [{if !$editable}]
