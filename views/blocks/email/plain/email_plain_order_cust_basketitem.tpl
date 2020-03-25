@@ -7,8 +7,11 @@
 [{/foreach}][{/if}]
 [{if $basketitem->getPersParams()}]
 [{foreach key=sVar from=$basketitem->getPersParams() item=aParam}]
+[{if $sVar != 'flaeche_aktiv' }]
 
 [{$sVar}] : [{$aParam}]
+[{/if}]                              
+
 [{/foreach}]
 [{/if}]
 [{if $oViewConf->getShowGiftWrapping()}]

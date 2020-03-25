@@ -15,7 +15,7 @@
                             [{/if}]
                             [{if $basketitem->getPersParams()}]
                                 [{foreach key=sVar from=$basketitem->getPersParams() item=aParam}]
-                                    ,&nbsp;<em>[{$sVar}] : [{$aParam}]</em>
+                                    ,&nbsp;<em>[{oxmultilang ident=$sVar}] : [{$aParam}]</em>
                                 [{/foreach}]
                             [{/if}]
                             <br>[{oxmultilang ident="PRODUCT_NO" suffix="COLON"}] [{$basketproduct->oxarticles__oxartnum->value}]

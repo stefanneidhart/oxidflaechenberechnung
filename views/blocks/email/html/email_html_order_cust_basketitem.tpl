@@ -20,7 +20,7 @@
                                 <ul>
                                     [{foreach key=sVar from=$basketitem->getPersParams() item=aParam}]
 				   [{if $sVar != 'flaeche_aktiv' }]
-                                        <li style="padding: 3px;">[{$sVar}] : [{$aParam}]</li>
+                                        <li style="padding: 3px;">[{oxmultilang ident=$sVar}] : [{$aParam}]</li>
 					[{/if}]
                                     [{/foreach}]
                                 </ul>
