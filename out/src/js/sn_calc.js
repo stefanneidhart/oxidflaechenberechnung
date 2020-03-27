@@ -26,7 +26,7 @@ var CalcHandler = function ()
 	var breite = this.getWidth();
 
 	var result = hoehe * breite;
-	$('#AreaResult').html(result + ' m²');
+	$('#AreaResult').html(result.toFixed(2) + ' m²');
 	this.calcWeight(result);
     }
 
@@ -51,7 +51,7 @@ var CalcHandler = function ()
 
     this.calcWeight = function (area) {
 	var weight = (area * this.gewicht) / 1000;
-	$('.weight').html('Gewicht: ' + weight + ' kg');
+	$('.weight').html('Gewicht: ' + weight.toFixed(2) + ' kg');
     }
 
     this.getHeight = function () {
