@@ -103,11 +103,13 @@ var CalcHandler = function ()
 };
 
     $(document).ready(function ()
-    {
+    {	
 	var CH = new CalcHandler();
+	
 	CH.setMaxH(MaxH);
 	CH.setMaxB(MaxB);
 	CH.setMaxGewicht(Gewicht);
 	CH.setPreis(Preis);
+	
 	CH.init();
     });

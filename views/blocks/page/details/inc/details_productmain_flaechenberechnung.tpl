@@ -12,15 +12,10 @@
 
 <script type="text/javascript">
 <!--
-
-
-	var MaxH = [{$MaxH}];
-	var MaxB = [{$MaxB}];
-	var Gewicht = [{$Gewicht}];
-	var Preis = [{$Preis->getPrice()}];
-
-  
-
+	var MaxH = "[{$MaxH}]";
+	var MaxB = "[{$MaxB}]";
+	var Gewicht = "[{$Gewicht}]";
+	var Preis = "[{$Preis->getPrice()}]";
 //-->
 </script>
 
