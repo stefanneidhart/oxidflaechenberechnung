@@ -7,7 +7,7 @@ $aLang = [
     'charset'                                           => 'UTF-8',
  
     'maincontrollerflaechenberechnung'                        => 'Flächenberechnung',
-    'hoehe' => 'Höhe',
+    'hoehe' => 'Länge',
     'breite' => 'Breite',
     'COLON'=> ':',
  

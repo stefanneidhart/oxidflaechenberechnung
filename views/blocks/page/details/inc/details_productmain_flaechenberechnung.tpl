@@ -24,7 +24,7 @@
 
     <div class="InputContainer">
 	<div class="itemrow HoeheContainer">
-	    <label>Höhe:</label>
+	    <label>Länge:</label>
 	    <input id="hoehe" type="text" name="hoehe" value="1" size="3" autocomplete="off" class="textbox">
 	</div>	
 	<div class="itemrow BreiteContainer">
