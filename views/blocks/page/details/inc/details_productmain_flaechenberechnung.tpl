@@ -5,6 +5,8 @@
 [{oxstyle include=$oViewConf->getModuleUrl("oxidflaechenberechnung", "out/src/css/sn_calc.css") }]
 [{assign var="MaxH" value=$oDetailsProduct->getMaxH()}]
 [{assign var="MaxB" value=$oDetailsProduct->getMaxB()}]
+[{assign var="MinH" value=$oDetailsProduct->getMinH()}]
+[{assign var="MinB" value=$oDetailsProduct->getMinB()}]
 [{assign var="Gewicht" value=$oDetailsProduct->getGewicht()}]
 [{assign var="Preis" value=$oDetailsProduct->getPrice()}]
 [{oxscript include=$oViewConf->getModuleUrl("oxidflaechenberechnung", "out/src/js/sn_calc.js") }]
@@ -12,8 +14,12 @@
 
 <script type="text/javascript">
 <!--
+	var MinH = "[{$MinH}]";
+	var MinB = "[{$MinB}]";
+	
 	var MaxH = "[{$MaxH}]";
 	var MaxB = "[{$MaxB}]";
+	
 	var Gewicht = "[{$Gewicht}]";
 	var Preis = "[{$Preis->getPrice()}]";
 //-->
@@ -24,11 +30,11 @@
 
     <div class="InputContainer">
 	<div class="itemrow HoeheContainer">
-	    <label>Länge:</label>
+	    <label>[{$oDetailsProduct->getHLabel()}]:</label>
 	    <input id="hoehe" type="text" name="hoehe" value="1" size="3" autocomplete="off" class="textbox">
 	</div>	
 	<div class="itemrow BreiteContainer">
-	    <label>Breite:</label>
+	    <label>[{$oDetailsProduct->getBLabel()}]:</label>
 	    <input id="breite" type="text" name="breite" value="1" size="3" autocomplete="off" class="textbox">
 
 	</div>		

@@ -3,7 +3,9 @@ var CalcHandler = function ()
     this.gewicht = 0;
     this.maxH = 0;
     this.maxB = 0;
-     this.preis = 0;
+    this.minH = 1;
+    this.minB = 1;
+    this.preis = 0;
 
     this.init = function ()
     {
@@ -17,7 +19,7 @@ var CalcHandler = function ()
 	});
 
 	$('#hoehe').change();
-	
+
     }
 
     this.calcArea = function ()
@@ -31,12 +33,12 @@ var CalcHandler = function ()
     }
 
     this.setMin = function () {
-	if (this.getHeight() < 1) {
-	    $('#hoehe').val(Number(1));
+	if (this.getHeight() < this.minH) {
+	    $('#hoehe').val(Number(this.minH));
 	}
 
-	if (this.getWidth() < 1) {
-	    $('#breite').val(Number(1));
+	if (this.getWidth() < this.minB) {
+	    $('#breite').val(Number(this.minB));
 	}
     }
 
@@ -93,6 +95,14 @@ var CalcHandler = function ()
 	this.maxB = option;
     }
 
+    this.setMinH = function (option) {
+	this.minH = option;
+    }
+
+    this.setMinB = function (option) {
+	this.minB = option;
+    }
+
     this.setMaxGewicht = function (option) {
 	this.gewicht = option;
     }
@@ -102,14 +112,18 @@ var CalcHandler = function ()
     }
 };
 
-    $(document).ready(function ()
-    {	
-	var CH = new CalcHandler();
-	
-	CH.setMaxH(MaxH);
-	CH.setMaxB(MaxB);
-	CH.setMaxGewicht(Gewicht);
-	CH.setPreis(Preis);
-	
-	CH.init();
-    });
+$(document).ready(function ()
+{
+    var CH = new CalcHandler();
+
+    CH.setMaxH(MaxH);
+    CH.setMaxB(MaxB);
+
+    CH.setMinH(MinH);
+    CH.setMinB(MinB);
+
+    CH.setMaxGewicht(Gewicht);
+    CH.setPreis(Preis);
+
+    CH.init();
+});

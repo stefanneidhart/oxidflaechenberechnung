@@ -22,7 +22,7 @@ $aModule = array(
 		'en' => '<h2>Flächenberechung</h2>',
 	),
 	'thumbnail' => 'calc.png',
-	'version' => '1.0.7',
+	'version' => '1.0.8',
 	'author' => 'Stefan Neidhart',
 	'url' => 'https://www.stefanneidhart.de',
 	'email' => 'info@stefanneidhart.de',

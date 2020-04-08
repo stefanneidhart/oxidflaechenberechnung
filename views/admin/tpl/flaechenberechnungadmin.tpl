@@ -68,18 +68,48 @@
 		<input type="text" class="editinput" size="8" maxlength="[{$edit->oxarticles__oxprice->fldmax_length}]" name="editval[oxarticles__oxprice]" value="[{$edit->oxarticles__oxprice->value}]" [{$readonly}]>
 	    </td>
 	</tr>
+	
+	<tr>
+	    <td>Label-Höhe</td>
+	    <td>				
+		<input type="text" class="editinput" size="20" maxlength="[{$edit->oxarticles__flaeche_hoehe_label->fldmax_length}]" name="editval[oxarticles__flaeche_hoehe_label]" value="[{$edit->oxarticles__flaeche_hoehe_label->value}]"  [{ $readonly }]>
+	    </td>
+	</tr>	
+
+	<tr>
+	    <td>Label-Breite</td>
+	    <td>				
+		<input type="text" class="editinput" size="20" maxlength="[{$edit->oxarticles__flaeche_breite_label->fldmax_length}]" name="editval[oxarticles__flaeche_breite_label]" value="[{$edit->oxarticles__flaeche_breite_label->value}]"  [{ $readonly }]>
+	    </td>
+	</tr>		
+	
 	<tr>
 	    <td>Maximale-Höhe</td>
 	    <td>				
 		<input type="text" class="editinput" size="20" maxlength="[{$edit->oxarticles__flaeche_hoehe_max->fldmax_length}]" name="editval[oxarticles__flaeche_hoehe_max]" value="[{$edit->oxarticles__flaeche_hoehe_max->value}]"  [{ $readonly }]>
 	    </td>
 	</tr>	
+	
+	<tr>
+	    <td>Minimale-Höhe</td>
+	    <td>				
+		<input type="text" class="editinput" size="20" maxlength="[{$edit->oxarticles__flaeche_hoehe_min->fldmax_length}]" name="editval[oxarticles__flaeche_hoehe_min]" value="[{$edit->oxarticles__flaeche_hoehe_min->value}]"  [{ $readonly }]>
+	    </td>
+	</tr>	
+
 	<tr>
 	    <td>Maximale-Breite</td>
 	    <td>				
 		<input type="text" class="editinput" size="20" maxlength="[{$edit->oxarticles__flaeche_breite_max->fldmax_length}]" name="editval[oxarticles__flaeche_breite_max]" value="[{$edit->oxarticles__flaeche_breite_max->value}]"  [{ $readonly }]>
 	    </td>
 	</tr>		
+	<tr>
+	    <td>Minimale-Breite</td>
+	    <td>				
+		<input type="text" class="editinput" size="20" maxlength="[{$edit->oxarticles__flaeche_breite_min->fldmax_length}]" name="editval[oxarticles__flaeche_breite_min]" value="[{$edit->oxarticles__flaeche_breite_min->value}]"  [{ $readonly }]>
+	    </td>
+	</tr>	
+	
 		<tr>
 	    <td>Gewicht in Gramm je qm</td>
 	    <td>				
