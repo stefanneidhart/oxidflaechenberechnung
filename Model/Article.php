@@ -41,5 +41,4 @@ class Article extends Article_parent {
 	    return $label;
 	}
     }
-
 }
