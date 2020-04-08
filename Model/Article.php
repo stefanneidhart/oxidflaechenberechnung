@@ -26,7 +26,7 @@ class Article extends Article_parent {
 
     public function getBLabel() {
 	$label = $this->oxarticles__flaeche_breite_label->value;
-	if (!empty($label)) {
+	if (empty($label)) {
 	    return 'Breite';
 	} else {
 	    return $label;
@@ -35,7 +35,7 @@ class Article extends Article_parent {
 
     public function getHLabel() {
 	$label = $this->oxarticles__flaeche_hoehe_label->value;
-	if (!empty($label)) {
+	if (empty($label)) {
 	    return 'Höhe';
 	} else {
 	    return $label;
