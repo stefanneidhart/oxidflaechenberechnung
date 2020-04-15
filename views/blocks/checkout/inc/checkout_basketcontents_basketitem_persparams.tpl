@@ -22,6 +22,16 @@
 	[{/foreach}]
     </small>
 </p>
+[{elseif $aParams.areacalc_active == '1' }]
+[{*$aParams|var_dump*}]
+
+    <strong>Breite: </strong> [{$aParams.breite}] m<br />
+    <strong>Höhe: </strong> [{$aParams.hoehe}] m<br />
+    <strong>Fläche: </strong> [{$aParams.hoehe*$aParams.breite}] m²<br />
+    <strong>Material: </strong> [{$basketitem->getMaterialName($aParams.MaterialTypesSelect)}]
+    [{if $aParams.areacalc_opt1 == '1'}]<strong>Edelstahlprofilschine: </strong> ja<br />[{/if}] 
+ [{if $aParams.areacalc_opt2 == '1'}]<strong>S - vor Sturz: </strong> ja[{/if}] 
+
 [{else}]
 [{if $basketproduct->oxarticles__oxisconfigurable->value}]
 [{if $basketitem->getPersParams()}]
