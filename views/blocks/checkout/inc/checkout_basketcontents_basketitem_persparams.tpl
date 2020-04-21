@@ -5,7 +5,7 @@
 <p class="persparamBox">
     <strong>Breite: </strong> [{$aParams.breite}] m<br />
     <strong>Höhe: </strong> [{$aParams.hoehe}] m<br />
-    <strong>Fläche: </strong> [{$aParams.hoehe*$aParams.breite}] m²
+    <strong>Fläche: </strong> [{$basketitem->getFlaeche($aParams)}] m²
 </p>
 [{else}]
 [{if !$editable}]

@@ -1,8 +1,8 @@
 <?php
+
 namespace sn\oxidflaechenberechnung\Model;
 
 class BasketItem extends BasketItem_parent {
-
 
     public function getMaterialWeight() {
 	return $this->_oArticle->getGewicht();
@@ -26,7 +26,7 @@ class BasketItem extends BasketItem_parent {
 	    $oArticle = $this->getArticle(true);
 	    $m2weight = $oArticle->getGewicht();
 	    $newWeight = ((( $aPersParams['hoehe'] * $aPersParams['breite'] ) * $m2weight ) / 1000) * $amount;
-	    $this->_dWeight = $newWeight ;
+	    $this->_dWeight = $newWeight;
 	    $oArticle->oxarticles__oxweight->value = $newWeight;
 	}
     }
@@ -49,18 +49,22 @@ class BasketItem extends BasketItem_parent {
 	    $preisObj = $oArticle->getPrice();
 	    $preis = $preisObj->getPrice();
 	    $newPrice = ($breite * $hoehe) * $preis;
-	    	    
+
 	    return $newPrice;
 	} else {
 	    return $this->_oPrice;
 	}
     }
 
+    public function getFlaeche($aParams) {
+	return $aParams['hoehe'] * $aParams['breite'];
+    }
+
     public function setPrice($oPrice, $params = null) {
 
 	$aPersParams = $this->getPersParams();
 
-	
+
 	if ($params !== null || $aPersParams['flaeche_aktiv'] == '1') {
 	    $newPrice = $this->calcAPrice($params);
 
@@ -90,4 +94,5 @@ class BasketItem extends BasketItem_parent {
 	    return $this->_oRegularUnitPrice;
 	}
     }
+
 }
