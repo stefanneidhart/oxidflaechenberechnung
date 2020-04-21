@@ -48,7 +48,7 @@ class BasketItem extends BasketItem_parent {
 	    $hoehe = $aPersParams['hoehe'];
 	    $preisObj = $oArticle->getPrice();
 	    $preis = $preisObj->getPrice();
-	    $newPrice = ($breite * $hoehe) * $preis;
+	    $newPrice = $this->getFlaeche($aPersParams) * $preis;
 
 	    return $newPrice;
 	} else {
