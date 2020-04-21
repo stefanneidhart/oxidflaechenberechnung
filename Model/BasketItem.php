@@ -61,7 +61,7 @@ class BasketItem extends BasketItem_parent {
 	$hoehe = str_replace(',', '.', $aParams['hoehe']);
 	$breite = str_replace(',', '.', $aParams['breite']);
 	
-	return (float)$hoehe * (float)$hoehe;
+	return (float)$hoehe * (float)$breite;
     }
 
     public function setPrice($oPrice, $params = null) {
