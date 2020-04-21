@@ -57,7 +57,7 @@ class BasketItem extends BasketItem_parent {
     }
 
     public function getFlaeche($aParams) {
-	var_dump($aParams);
+	//var_dump($aParams);
 	$hoehe = str_replace(',', '.', $aParams['hoehe']);
 	$breite = str_replace(',', '.', $aParams['breite']);
 	
