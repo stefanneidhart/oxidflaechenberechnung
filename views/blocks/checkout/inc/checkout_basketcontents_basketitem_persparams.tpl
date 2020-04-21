@@ -7,8 +7,18 @@
     <strong>Höhe: </strong> [{$aParams.hoehe}] m<br />
     <strong>Fläche: </strong> [{$basketitem->getFlaeche($aParams)}] m²
 </p>
+
+[{elseif $aParams.areacalc_active == '1' }]
+[{*$aParams|var_dump*}]
+
+    <strong>Breite: </strong> [{$aParams.breite}] m<br />
+    <strong>Höhe: </strong> [{$aParams.hoehe}] m<br />
+    <strong>Fläche: </strong> [{$aParams.hoehe*$aParams.breite}] m²<br />
+    <strong>Material: </strong> [{$basketitem->getMaterialName($aParams.MaterialTypesSelect)}]
+    [{if $aParams.areacalc_opt1 == '1'}]<strong>Edelstahlprofilschine: </strong> ja<br />[{/if}] 
+ [{if $aParams.areacalc_opt2 == '1'}]<strong>S - vor Sturz: </strong> ja[{/if}] 
+
 [{else}]
-[{if !$editable}]
 <p class="persparamBox">
     <small>
 	[{foreach key=sVar from=$basketitem->getPersParams() item=aParam name=persparams}]
@@ -22,33 +32,6 @@
 	[{/foreach}]
     </small>
 </p>
-[{elseif $aParams.areacalc_active == '1' }]
-[{*$aParams|var_dump*}]
-
-    <strong>Breite: </strong> [{$aParams.breite}] m<br />
-    <strong>Höhe: </strong> [{$aParams.hoehe}] m<br />
-    <strong>Fläche: </strong> [{$aParams.hoehe*$aParams.breite}] m²<br />
-    <strong>Material: </strong> [{$basketitem->getMaterialName($aParams.MaterialTypesSelect)}]
-    [{if $aParams.areacalc_opt1 == '1'}]<strong>Edelstahlprofilschine: </strong> ja<br />[{/if}] 
- [{if $aParams.areacalc_opt2 == '1'}]<strong>S - vor Sturz: </strong> ja[{/if}] 
-
-[{else}]
-[{if $basketproduct->oxarticles__oxisconfigurable->value}]
-[{if $basketitem->getPersParams()}]
-<br />
-[{foreach key=sVar from=$basketitem->getPersParams() item=aParam name=persparams}]
-<p>
-    <input class="textbox persParam form-control" type="text" name="aproducts[[{$basketindex}]][persparam][[{$sVar}]]" value="[{$aParam}]" placeholder="[{if $smarty.foreach.persparams.first && $smarty.foreach.persparams.last}][{oxmultilang ident="LABEL"}][{else}][{$sVar}][{/if}]">
-</p>
-[{/foreach}]
-[{else}]
-<p>
-    <input class="textbox persParam form-control" type="text" name="aproducts[[{$basketindex}]][persparam][details]" value="" placeholder="[{oxmultilang ident="LABEL"}]">
-</p>
-[{/if}]
-[{/if}]
-[{/if}]
-
 
 
 [{/if}] 

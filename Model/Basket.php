@@ -149,6 +149,9 @@ class Basket extends Basket_parent {
     }
 
     protected function _changeBasketItemKey($sOldKey, $sNewKey, $value = null) {
+	
+	$session = \OxidEsales\Eshop\Core\Registry::getSession();
+	
 	reset($this->_aBasketContents);
 	$iOldKeyPlace = 0;
 	while (key($this->_aBasketContents) != $sOldKey && next($this->_aBasketContents)) {
