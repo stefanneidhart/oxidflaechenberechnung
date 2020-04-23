@@ -2,7 +2,7 @@
 
 namespace sn\oxidflaechenberechnung\Model;
 
-class Article extends Article_parent {
+class Article extends Article_parent {  
 
     public function getMaxH() {
 	return $this->oxarticles__flaeche_hoehe_max->value;
