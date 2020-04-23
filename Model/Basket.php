@@ -146,23 +146,22 @@ class Basket extends Basket_parent {
 	return $this->_aBasketContents[$sItemId];
     }
 
-    protected function _changeBasketItemKey($sOldKey, $sNewKey, $value = null) {
-	
-	$session = \OxidEsales\Eshop\Core\Registry::getSession();
-	
-	reset($this->_aBasketContents);
-	$iOldKeyPlace = 0;
-	while (key($this->_aBasketContents) != $sOldKey && next($this->_aBasketContents)) {
-	    ++$iOldKeyPlace;
-	}
-	$aNewCopy = array_merge(
-		array_slice($this->_aBasketContents, 0, $iOldKeyPlace, true), array($sNewKey => $value), array_slice($this->_aBasketContents, $iOldKeyPlace + 1, count($this->_aBasketContents) - $iOldKeyPlace, true)
-	);
-	$this->_aBasketContents = $aNewCopy;
+    protected function _changeBasketItemKey($sOldKey, $sNewKey, $value = null) {	
+        reset($this->_aBasketContents);
+        $iOldKeyPlace = 0;
+        while (key($this->_aBasketContents) != $sOldKey && next($this->_aBasketContents)) {
+            ++$iOldKeyPlace;
+        }
+        $aNewCopy = array_merge(
+            array_slice($this->_aBasketContents, 0, $iOldKeyPlace, true),
+            [$sNewKey => $value],
+            array_slice($this->_aBasketContents, $iOldKeyPlace + 1, count($this->_aBasketContents) - $iOldKeyPlace, true)
+        );
+        $this->_aBasketContents = $aNewCopy;
 
+	$session = \OxidEsales\Eshop\Core\Registry::getSession();
 	//$bitemsdata = oxSession::getVar($sOldKey);
 	$bitemsdata = $session->getVariable($sOldKey);
-	var_dump($bitemsdata);
 	if ($bitemsdata != null) {
 	    //  oxSession::setVar( $sNewKey, $bitemsdata );
 	    $session->setVariable($sNewKey, $bitemsdata);
