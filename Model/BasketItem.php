@@ -43,13 +43,21 @@ class BasketItem extends BasketItem_parent {
 	
 	$sparams = $session->getVariable($this->getBasketItemId());
 	
-	var_dump($sparams);
-
-	if (isset($aPersParams['flaeche_aktiv']) && $aPersParams['flaeche_aktiv'] == 1) {
-
-	    $this->flaeche_aktiv_flag = true;
-	    $oArticle = $this->getArticle(true);
-
+	$oArticle = $this->getArticle(true);
+	
+	if ($oArticle->isFlaechenberechnungActive() == 1) {
+	//if (isset($aPersParams['flaeche_aktiv']) && $aPersParams['flaeche_aktiv'] == 1) { 
+	    
+	    var_dump($aPersParams);
+	    
+	    if (!isset($aPersParams['breite'])) {
+		$aPersParams['breite']= $oArticle->getMinB();
+	    }
+	    
+	    if (!isset($aPersParams['hoehe'])) {
+		$aPersParams['hoehe']= $oArticle->getMinH();
+	    }	    
+	    
 	    $breite = $aPersParams['breite'];
 	    $hoehe = $aPersParams['hoehe'];
 	    $preisObj = $oArticle->getPrice();

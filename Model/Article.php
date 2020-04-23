@@ -32,6 +32,10 @@ class Article extends Article_parent {
 	    return $label;
 	}
     }
+    
+    public function isFlaechenberechnungActive() {
+	return $this->oxarticles__flaeche_aktiv->value;
+    }
 
     public function getHLabel() {
 	$label = $this->oxarticles__flaeche_hoehe_label->value;
