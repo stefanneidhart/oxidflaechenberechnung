@@ -44,11 +44,12 @@ class BasketItem extends BasketItem_parent {
 	$sparams = $session->getVariable($this->getBasketItemId());
 	
 	$oArticle = $this->getArticle(true);
-	
+	  var_dump($aPersParams);
+	  var_dump($oArticle->isFlaechenberechnungActive());
 	if ($oArticle->isFlaechenberechnungActive() == 1) {
 	//if (isset($aPersParams['flaeche_aktiv']) && $aPersParams['flaeche_aktiv'] == 1) { 
 	    
-	    var_dump($aPersParams);
+	  
 	    
 	    if (!isset($aPersParams['breite'])) {
 		$aPersParams['breite']= $oArticle->getMinB();

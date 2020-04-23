@@ -153,7 +153,7 @@ class Basket extends Basket_parent {
 
     protected function _changeBasketItemKey($sOldKey, $sNewKey, $value = null) {
 	
-	var_dump($sNewKey);
+	echo "newkey".$sNewKey;
 	
 	$session = \OxidEsales\Eshop\Core\Registry::getSession();
 	
