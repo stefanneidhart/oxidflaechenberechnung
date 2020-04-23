@@ -24,9 +24,6 @@ class Basket extends Basket_parent {
 	if ($sOldBasketItemId != null) {
 	    //  $bitemsdata = oxSession::getVar($sOldBasketItemId);
 	    $bitemsdata = $session->getVariable($sOldBasketItemId);
-	    
-	    var_dump($bitemsdata);
-
 	    if ($bitemsdata != null) {
 		$aPersParam = $bitemsdata;
 	    }
@@ -60,11 +57,7 @@ class Basket extends Basket_parent {
 
 	$sItemId = $this->getItemKey($sProductID, $aSel, $aPersParam, $blBundle);
 
-	if (!empty($areacalc_active) && $areacalc_active == '1') {
-	    // oxSession::setVar($sItemId, $aPersParam);
-	    
-
-	    
+	if (!empty($areacalc_active) && $areacalc_active == '1') {    
 	    $session->setVariable($sItemId, $aPersParam);
 	}
 
