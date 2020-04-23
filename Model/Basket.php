@@ -57,11 +57,11 @@ class Basket extends Basket_parent {
 	}
 
 	$sItemId = $this->getItemKey($sProductID, $aSel, $aPersParam, $blBundle);
-var_dump($sItemId);
+
 	if (!empty($areacalc_active) && $areacalc_active == '1') {
 	    // oxSession::setVar($sItemId, $aPersParam);
 	    
-	    var_dump($aPersParam);
+
 	    
 	    $session->setVariable($sItemId, $aPersParam);
 	}
