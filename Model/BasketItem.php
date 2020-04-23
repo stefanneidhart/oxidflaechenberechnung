@@ -38,6 +38,12 @@ class BasketItem extends BasketItem_parent {
 	} else {
 	    $aPersParams = $this->getPersParams();
 	}
+	
+	$session = \OxidEsales\Eshop\Core\Registry::getSession();
+	
+	$sparams = $session->getVariable($this->getBasketItemId());
+	
+	var_dump($sparams);
 
 	if (isset($aPersParams['flaeche_aktiv']) && $aPersParams['flaeche_aktiv'] == 1) {
 
