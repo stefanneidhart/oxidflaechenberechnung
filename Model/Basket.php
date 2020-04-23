@@ -24,6 +24,8 @@ class Basket extends Basket_parent {
 	if ($sOldBasketItemId != null) {
 	    //  $bitemsdata = oxSession::getVar($sOldBasketItemId);
 	    $bitemsdata = $session->getVariable($sOldBasketItemId);
+	    
+	    var_dump($bitemsdata);
 
 	    if ($bitemsdata != null) {
 		$aPersParam = $bitemsdata;
@@ -153,8 +155,6 @@ class Basket extends Basket_parent {
 
     protected function _changeBasketItemKey($sOldKey, $sNewKey, $value = null) {
 	
-	echo "newkey".$sNewKey;
-	
 	$session = \OxidEsales\Eshop\Core\Registry::getSession();
 	
 	reset($this->_aBasketContents);
@@ -169,6 +169,7 @@ class Basket extends Basket_parent {
 
 	//$bitemsdata = oxSession::getVar($sOldKey);
 	$bitemsdata = $session->getVariable($sOldKey);
+	var_dump($bitemsdata);
 	if ($bitemsdata != null) {
 	    //  oxSession::setVar( $sNewKey, $bitemsdata );
 	    $session->setVariable($sNewKey, $bitemsdata);

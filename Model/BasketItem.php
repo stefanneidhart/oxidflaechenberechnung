@@ -80,11 +80,14 @@ class BasketItem extends BasketItem_parent {
     }
 
     public function setPrice($oPrice, $params = null) {
-
+	
+	$oArticle = $this->getArticle(true);
+	
 	$aPersParams = $this->getPersParams();
 
 
-	if ($params !== null || $aPersParams['flaeche_aktiv'] == '1') {
+	//if ($params !== null || $aPersParams['flaeche_aktiv'] == '1') {
+	if ($params !== null || $oArticle->isFlaechenberechnungActive() == 1) {
 	    $newPrice = $this->calcAPrice($params);
 
 	    $this->_dNetto = $newPrice;
@@ -92,9 +95,9 @@ class BasketItem extends BasketItem_parent {
 	    $oPrice->setPrice($newPrice);
 
 	    $this->_oUnitPrice = clone $oPrice;
-	    if ($aPersParams['flaeche_aktiv'] == '1') {
+	    if ($aPersParams['flaeche_aktiv'] == '1') {}
 		$this->_oRegularUnitPrice = clone $oPrice;
-	    }
+	    
 
 	    $this->_oPrice = clone $oPrice;
 	    $this->_oPrice->multiply($this->getAmount());
@@ -106,8 +109,10 @@ class BasketItem extends BasketItem_parent {
     }
 
     public function getRegularUnitPrice() {
-	$aPersParams = $this->getPersParams();
-	if ($aPersParam['flaeche_aktiv'] == '1') {
+	//$aPersParams = $this->getPersParams();
+	//if ($aPersParam['flaeche_aktiv'] == '1') {
+	$oArticle = $this->getArticle(true);
+	if ($oArticle->isFlaechenberechnungActive()) {
 	    return $this->_oPrice;
 	} else {
 	    return $this->_oRegularUnitPrice;
