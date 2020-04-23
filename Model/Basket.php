@@ -60,6 +60,9 @@ class Basket extends Basket_parent {
 
 	if (!empty($areacalc_active) && $areacalc_active == '1') {
 	    // oxSession::setVar($sItemId, $aPersParam);
+	    
+	    var_dump($aPersParam);
+	    
 	    $session->setVariable($sItemId, $aPersParam);
 	}
 
@@ -149,6 +152,8 @@ class Basket extends Basket_parent {
     }
 
     protected function _changeBasketItemKey($sOldKey, $sNewKey, $value = null) {
+	
+	var_dump($sNewKey);
 	
 	$session = \OxidEsales\Eshop\Core\Registry::getSession();
 	
