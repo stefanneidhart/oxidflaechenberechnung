@@ -22,7 +22,7 @@ $aModule = array(
 		'en' => '<h2>Flächenberechung</h2>',
 	),
 	'thumbnail' => 'calc.png',
-	'version' => '1.0.8',
+	'version' => '1.0.9',
 	'author' => 'Stefan Neidhart',
 	'url' => 'https://www.stefanneidhart.de',
 	'email' => 'info@stefanneidhart.de',
@@ -45,6 +45,11 @@ $aModule = array(
 			'template' => 'page/details/inc/productmain.tpl',
 			'block' => 'details_productmain_shortdesc',
 			'file' => 'views/blocks/page/details/inc/details_productmain_flaechenberechnung.tpl'
+		),
+		array(
+			'template' => 'page/checkout/inc/basketcontents_list.tpl',
+			'block' => 'checkout_basketcontents_basketitem_persparams',
+			'file' => 'views/blocks/checkout/inc/checkout_basketcontents_basketitem_persparams.tpl'
 		),
 		array(
 			'template' => 'page/checkout/inc/basketcontents_list.tpl',
