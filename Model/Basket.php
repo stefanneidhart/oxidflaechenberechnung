@@ -6,7 +6,7 @@ class Basket extends Basket_parent {
 
     public function addToBasket($sProductID, $dAmount, $aSel = null, $aPersParam = null, $blOverride = false, $blBundle = false, $sOldBasketItemId = null) {
 	
-var_dump($sProductID);
+
 // enabled ?
 	if (!$this->isEnabled())
 	    return null;
@@ -32,20 +32,16 @@ var_dump($sProductID);
 	}
 
 
-	$areacalc_active = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter('flaeche_aktiv');
+	$flaeche_aktiv = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter('flaeche_aktiv');
 	//$areacalc_active = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter('flaeche_aktiv');
-	$calcnewflag = false;
-	if (!empty($areacalc_active) && $areacalc_active == '1') {
+
+	if (!empty($flaeche_aktiv) && $flaeche_aktiv == '1') {
 	    $aPersParam['flaeche_aktiv'] = '1';
 	    $aPersParam['breite'] = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter('breite');
 	    $aPersParam['hoehe'] = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter('hoehe');
-	    $calcnewflag = true;
 	}
 
 	$areacalc_active = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter("areacalc_active");
-
-	//$areacalc_active = oxConfig::getParameter('areacalc_active');
-	$calcnewflag = false;
 	if (!empty($areacalc_active) && $areacalc_active == '1') {
 
 	    $aPersParam['areacalc_active'] = '1';
@@ -54,14 +50,11 @@ var_dump($sProductID);
 	    $aPersParam['MaterialTypesSelect'] = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter("MaterialTypesSelect");
 	    $aPersParam['areacalc_opt1'] = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter("areacalc_opt1");
 	    $aPersParam['areacalc_opt2'] = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter("areacalc_opt2");
-	    $calcnewflag = true;
 	}
 
 	$sItemId = $this->getItemKey($sProductID, $aSel, $aPersParam, $blBundle);
-
-	if (!empty($areacalc_active) && $areacalc_active == '1') {    
-	    $session->setVariable($sItemId, $aPersParam);
-	}
+	  $session->setVariable($sItemId, $aPersParam);
+	
 
 	if ($sOldBasketItemId && ( strcmp($sOldBasketItemId, $sItemId) != 0 )) {
 
