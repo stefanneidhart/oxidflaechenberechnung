@@ -7,7 +7,7 @@
 
     [{assign var="oActiveSelection" value=$oList->getActiveSelection()}]
     [{if $oActiveSelection}]
-
+    <input type="hidden" name="aproducts[[{$basketindex}]][sel][[{$smarty.foreach.selections.index}]]" value="[{$oActiveSelection->getValue()}]">
     <div><strong>[{$oList->getLabel()}]:</strong> [{$oActiveSelection->getName()}]</div>
     [{/if}]
 
