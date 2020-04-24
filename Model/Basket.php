@@ -5,7 +5,9 @@ namespace sn\oxidflaechenberechnung\Model;
 class Basket extends Basket_parent {
 
     public function addToBasket($sProductID, $dAmount, $aSel = null, $aPersParam = null, $blOverride = false, $blBundle = false, $sOldBasketItemId = null) {
-	// enabled ?
+	
+var_dump($sProductID);
+// enabled ?
 	if (!$this->isEnabled())
 	    return null;
 
