@@ -167,5 +167,4 @@ class Basket extends Basket_parent {
 	    $session->setVariable($sNewKey, $bitemsdata);
 	}
     }
-
 }
