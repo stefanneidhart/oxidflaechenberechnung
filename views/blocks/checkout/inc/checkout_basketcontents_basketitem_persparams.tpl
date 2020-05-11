@@ -6,6 +6,7 @@
     <strong>Breite: </strong> [{$aParams.breite}] m<br />
     <strong>Höhe: </strong> [{$aParams.hoehe}] m<br />
     <strong>Fläche: </strong> [{$basketitem->getFlaeche($aParams)}] m²
+    <strong>Gewicht: </strong> [{$basketitem->getMaterialWeight()}] 
 </p>
 
 [{elseif $aParams.areacalc_active == '1' }]
