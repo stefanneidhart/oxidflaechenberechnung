@@ -34,11 +34,14 @@ class Basket extends Basket_parent {
 
 	$flaeche_aktiv = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter('flaeche_aktiv');
 	//$areacalc_active = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter('flaeche_aktiv');
+	
+	$calcnewflag = false;
 
 	if (!empty($flaeche_aktiv) && $flaeche_aktiv == '1') {
 	    $aPersParam['flaeche_aktiv'] = '1';
 	    $aPersParam['breite'] = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter('breite');
 	    $aPersParam['hoehe'] = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter('hoehe');
+	    $calcnewflag = true;
 	}
 
 	$areacalc_active = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter("areacalc_active");
@@ -50,6 +53,7 @@ class Basket extends Basket_parent {
 	    $aPersParam['MaterialTypesSelect'] = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter("MaterialTypesSelect");
 	    $aPersParam['areacalc_opt1'] = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter("areacalc_opt1");
 	    $aPersParam['areacalc_opt2'] = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter("areacalc_opt2");
+	     $calcnewflag = true;
 	}
 
 	$sItemId = $this->getItemKey($sProductID, $aSel, $aPersParam, $blBundle);
