@@ -5,7 +5,7 @@
 <p class="persparamBox">
     <strong>Breite: </strong> [{$aParams.breite}] m<br />
     <strong>Höhe: </strong> [{$aParams.hoehe}] m<br />
-    <strong>Fläche: </strong> [{$basketitem->getFlaeche($aParams)}] m²
+    <strong>Fläche: </strong> [{$basketitem->getFlaeche($aParams)}] m²<br />
     <strong>Gewicht: </strong> [{$basketitem->getMaterialWeight()}] 
 </p>
 

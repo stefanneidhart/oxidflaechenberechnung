@@ -28,7 +28,7 @@ class BasketItem extends BasketItem_parent {
 	    $newWeight = ((( $aPersParams['hoehe'] * $aPersParams['breite'] ) * $m2weight ) / 1000) * $amount;
 	    $this->_dWeight = $newWeight;
 	    $oArticle->oxarticles__oxweight->value = $newWeight;
-	   // var_dump($newWeight);
+	   
 	    return $newWeight;
 	}
     }
