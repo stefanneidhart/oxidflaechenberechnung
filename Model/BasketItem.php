@@ -46,6 +46,8 @@ class BasketItem extends BasketItem_parent {
 	$sparams = $session->getVariable($this->getBasketItemId());
 	
 	$oArticle = $this->getArticle(true);
+	 var_dump(  $oArticle->getSelections() );
+	    
 	//  var_dump($aPersParams);
 	//  var_dump($oArticle->isFlaechenberechnungActive());
 	if ($oArticle->isFlaechenberechnungActive() == 1) {
