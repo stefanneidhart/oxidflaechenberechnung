@@ -25,8 +25,7 @@ class ArticleSelectlistController extends \OxidEsales\Eshop\Application\Controll
         public function render()
     {
 	    
-	    parent::render();
-	    return $this->_sThisTemplate;
+
 
                 
         
