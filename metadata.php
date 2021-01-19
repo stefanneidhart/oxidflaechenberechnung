@@ -35,10 +35,13 @@ $aModule = array(
     ),
     'controllers' => array(
 	'maincontrollerflaechenberechnung' => \sn\oxidflaechenberechnung\Controller\Admin\MainController::class,
+	'ArticleSelectlistController' => \sn\oxidflaechenberechnung\Controller\ArticleSelectlistController::class,
+	
     ),
     'files' => array(),
     'templates' => array(
 	'flaechenberechnungadmin.tpl' => 'sn/oxidflaechenberechnung/views/admin/tpl/flaechenberechnungadmin.tpl',
+	'snAjaxSelectlist.tpl' => 'sn/oxidflaechenberechnung/views/page/ajax/snAjaxSelectlist.tpl',
     ),
     'blocks' => array(
 	array(
