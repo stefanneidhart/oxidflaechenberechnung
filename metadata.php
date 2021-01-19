@@ -22,7 +22,7 @@ $aModule = array(
 	'en' => '<h2>Flächenberechung</h2>',
     ),
     'thumbnail' => 'calc.png',
-    'version' => '1.0.13',
+    'version' => '1.0.14',
     'author' => 'Stefan Neidhart',
     'url' => 'https://www.stefanneidhart.de',
     'email' => 'info@stefanneidhart.de',
@@ -36,12 +36,11 @@ $aModule = array(
     'controllers' => array(
 	'maincontrollerflaechenberechnung' => \sn\oxidflaechenberechnung\Controller\Admin\MainController::class,
 	'ArticleSelectlistController' => \sn\oxidflaechenberechnung\Controller\ArticleSelectlistController::class,
-	
     ),
     'files' => array(),
     'templates' => array(
 	'flaechenberechnungadmin.tpl' => 'sn/oxidflaechenberechnung/views/admin/tpl/flaechenberechnungadmin.tpl',
-	'snAjaxSelectlist.tpl' => 'sn/oxidflaechenberechnung/views/page/ajax/snAjaxSelectlist.tpl',
+	'snAjaxSelectlist.tpl' => 'sn/oxidflaechenberechnung/views/ajax/snAjaxSelectlist.tpl',
     ),
     'blocks' => array(
 	array(
