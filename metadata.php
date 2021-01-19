@@ -22,7 +22,7 @@ $aModule = array(
 	'en' => '<h2>Flächenberechung</h2>',
     ),
     'thumbnail' => 'calc.png',
-    'version' => '1.0.15',
+    'version' => '1.0.16',
     'author' => 'Stefan Neidhart',
     'url' => 'https://www.stefanneidhart.de',
     'email' => 'info@stefanneidhart.de',
@@ -40,7 +40,7 @@ $aModule = array(
     'files' => array(),
     'templates' => array(
 	'flaechenberechnungadmin.tpl' => 'sn/oxidflaechenberechnung/views/admin/tpl/flaechenberechnungadmin.tpl',
-	'snAjaxSelectlist.tpl' => 'sn/oxidflaechenberechnung/views/ajax/snAjaxSelectlist.tpl',
+	'snAjaxSelectlist.tpl' => 'sn/oxidflaechenberechnung/views/snAjaxSelectlist.tpl',
     ),
     'blocks' => array(
 	array(
