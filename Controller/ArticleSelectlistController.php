@@ -20,7 +20,7 @@ class ArticleSelectlistController extends \OxidEsales\Eshop\Application\Controll
      *
      * @var string
      */
-    protected $_sThisTemplate = 'page/ajax/snAjaxSelectlist.tpl';
+    protected $_sThisTemplate = 'ajax/snAjaxSelectlist.tpl';
     
         public function render()
     {
