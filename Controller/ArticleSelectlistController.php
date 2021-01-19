@@ -11,6 +11,7 @@
  *
  * @author Neidini
  */
+namespace sn\oxidflaechenberechnung\Controller;
 
 class ArticleSelectlistController extends \OxidEsales\Eshop\Application\Controller\FrontendController
 {
