@@ -1,12 +1,13 @@
-[{if $oViewConf->showSelectLists()}]
+[{*if $oViewConf->showSelectLists()}]
 <div class="SelectListContainer">		 
     [{assign var="snSelections" value=$oDetailsProduct->getSelections()}]
 
     [{if $snSelections}]
     [{foreach from=$snSelections item=oList name=selections}]
     <div class="snSelect">
-	[{*include file="widget/product/selectbox.tpl" oSelectionList=$oList sFieldName="sel" iKey=$smarty.foreach.selections.index blHideDefault=true sSelType="seldrop"*}]
 
+	
+	
 	[{assign var="sSelType" value="seldrop"}]		
 	[{assign var="iKey" value=$smarty.foreach.selections.index}]	
 	[{assign var="sFieldName" value="sel"}]	
@@ -14,12 +15,17 @@
 
 	[{if $oSelections}]
 	<div class="form-group dropDown">
+	    [{$iKey}]
+	    [{$oList|var_dump}]
 	    [{if !$blHideLabel}]
-            <p class="variant-label"><strong>[{$oSelectionList->getLabel()}][{oxmultilang ident="COLON"}]</strong></p>
+            <p class="variant-label"><strong>[{$oList->getLabel()}][{oxmultilang ident="COLON"}]</strong></p>
 	    [{/if}]
 	    <div class="dropdown">
+		
+		
+		
 		<button type="button" class="btn btn-outline-dark btn-sm dropdown-toggle" data-toggle="dropdown">
-		    [{assign var="oActiveSelection" value=$oSelectionList->getActiveSelection()}]
+		    [{assign var="oActiveSelection" value=$oList->getActiveSelection()}]
 		    [{if $oActiveSelection}]
                     <span class="float-left">[{$oActiveSelection->getName()}]</span>
 		    [{elseif !$blHideDefault}]
@@ -27,7 +33,7 @@
                         [{if $sFieldName == "sel"}]
 			[{oxmultilang ident="PLEASE_CHOOSE"}]
                         [{else}]
-			[{$oSelectionList->getLabel()}] [{oxmultilang ident="CHOOSE_VARIANT"}]
+			[{$oList->getLabel()}] [{oxmultilang ident="CHOOSE_VARIANT"}]
                         [{/if}]
                     </span>
 		    [{/if}]
@@ -48,6 +54,7 @@
                     [{/if}]
                     [{foreach from=$oSelections item=oSelection}]
 		    <li class="dropdown-menu-item[{if $oSelection->isDisabled()}] disabled js-disabled[{/if}]">
+			[{$oSelection|var_dump}]
 			<a href="[{$oSelection->getLink()}]" data-selection-id="[{$oSelection->getValue()}]" class="dropdown-menu-link[{if $oSelection->isActive()}] active[{/if}]">[{$oSelection->getName()}]</a>
 		    </li>
                     [{/foreach}]
@@ -60,4 +67,4 @@
     [{/foreach}]
     [{/if}]
 </div>
-[{/if}]
+[{/if*}]
