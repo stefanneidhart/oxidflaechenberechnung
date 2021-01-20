@@ -6,6 +6,9 @@ var CalcHandler = function ()
     this.minH = 1;
     this.minB = 1;
     this.preis = 0;
+    this.selData = 0;
+    this.breite = 0;
+    this.hoehe = 0;
 
     this.init = function ()
     {
@@ -15,11 +18,16 @@ var CalcHandler = function ()
 	    myself.setMin();
 	    myself.setMax();
 	    myself.calcArea();
-	    myself.calcPrice();
+	    // myself.calcPrice();
+	    myself.newPriceAjax();
 	});
 
 	$('#hoehe').change();
 
+	$(".dropdown-menu-item").click(function (event) {
+	    event.preventDefault();
+	    myself.newPriceAjax();
+	});
     }
 
     this.calcArea = function ()
@@ -35,19 +43,23 @@ var CalcHandler = function ()
     this.setMin = function () {
 	if (this.getHeight() < this.minH) {
 	    $('#hoehe').val(Number(this.minH));
+	    this.hoehe = this.minH;
 	}
 
 	if (this.getWidth() < this.minB) {
 	    $('#breite').val(Number(this.minB));
+	     this.breite = this.minB;
 	}
     }
 
     this.setMax = function () {
 	if (this.getHeight() > Number(this.maxH)) {
 	    $('#hoehe').val(Number(this.maxH));
+	    this.hoehe = this.minH;
 	}
 	if (this.getWidth() > Number(this.maxB)) {
 	    $('#breite').val(Number(this.maxB));
+	     this.breite = this.minB;
 	}
     }
 
@@ -59,12 +71,14 @@ var CalcHandler = function ()
     this.getHeight = function () {
 	var tempHeight = $('#hoehe').val();
 	tempHeight = tempHeight.replace(",", ".");
+	this.hoehe = tempHeight;
 	return parseFloat(tempHeight);
     }
 
     this.getWidth = function () {
 	var tempWidth = $('#breite').val();
 	tempWidth = tempWidth.replace(",", ".");
+	this.breite = tempWidth;
 	return parseFloat(tempWidth);
     }
 
@@ -73,6 +87,7 @@ var CalcHandler = function ()
     }
 
     this.setUnitPrice = function (price) {
+	
 	$('#productPriceUnit').html(price.toFixed(2) + ' € je m²');
     }
 
@@ -103,12 +118,39 @@ var CalcHandler = function ()
 	this.minB = option;
     }
 
+    this.setaid = function (aid) {
+	this.aid = aid;
+    }
+
     this.setMaxGewicht = function (option) {
 	this.gewicht = option;
     }
 
     this.setPreis = function (option) {
 	this.preis = option;
+    }
+
+    this.newPriceAjax = function ()
+    {
+
+	var myself = this;
+	myself.selData = '';
+	$('#productSelections input[name*="sel"]').each(function (ele) {
+	    //selData.$(ele).attr('name') = $(this).attr('value');
+	    myself.selData = myself.selData + $(this).attr('name') + ':' + $(this).attr('value') + ';';
+	});
+
+	var hoehe = this.getHeight();
+	var breite = this.getWidth();
+
+	$.ajax({
+	    url: "/index.php",
+	    data: {cl: "ArticleSelectlistController", fnc: "renderSN", snaid: myself.aid, selval: myself.selData, h: hoehe, b: breite}
+	}).success(function (data) {
+	    data = Number(data);
+	    myself.setPrice(data);
+	    myself.setUnitPrice(data / (myself.breite * myself.hoehe));
+	});
     }
 };
 
@@ -118,6 +160,7 @@ $(document).ready(function ()
 
     CH.setMaxH(MaxH);
     CH.setMaxB(MaxB);
+    CH.setaid(aid);
 
     CH.setMinH(MinH);
     CH.setMinB(MinB);

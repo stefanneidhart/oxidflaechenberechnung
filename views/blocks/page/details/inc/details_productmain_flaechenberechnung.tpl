@@ -12,8 +12,12 @@
 [{oxscript include=$oViewConf->getModuleUrl("oxidflaechenberechnung", "out/src/js/sn_calc.js") }]
 
 
+
 <script type="text/javascript">
 <!--
+	
+	var aid = "[{$oDetailsProduct->oxarticles__oxid}]";
+	
 	var MinH = "[{$MinH}]";
 	var MinB = "[{$MinB}]";
 	
@@ -22,6 +26,8 @@
 	
 	var Gewicht = "[{$Gewicht}]";
 	var Preis = "[{$Preis->getPrice()}]";
+	
+
 //-->
 </script>
 

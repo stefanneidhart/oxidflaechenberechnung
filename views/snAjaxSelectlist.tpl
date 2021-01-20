@@ -1,7 +1,1 @@
-[{*oxscript include="js/pages/details.min.js" priority=10*}]
-
-[{assign var="snPrice" value=$oView->getNewPrice()}]
-
-[{$snPrice}]
-
-[{$oView->_snPrice}]
+[{$oView->_snPrice}][{*assign var="snPrice" value=$oView->getNewPrice()}][{$snPrice*}][{*$oView->_snaid*}][{*$oView->_snSelList|var_dump*}]
