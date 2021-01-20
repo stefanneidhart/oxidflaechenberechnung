@@ -27,8 +27,8 @@ class ArticleSelectlistController extends \OxidEsales\Eshop\Application\Controll
 
 	try {
 
-	    $config = $this->getConfig();
-	    parent::render();
+	 //   $config = $this->getConfig();
+	   // parent::render();
 	    
 	    
 	    $this->_snPrice = 55;
