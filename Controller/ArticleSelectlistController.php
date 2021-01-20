@@ -11,23 +11,38 @@
  *
  * @author Neidini
  */
+
 namespace sn\oxidflaechenberechnung\Controller;
 
-class ArticleSelectlistController extends \OxidEsales\Eshop\Application\Controller\FrontendController
-{
+class ArticleSelectlistController extends \OxidEsales\Eshop\Application\Controller\FrontendController {
+
     /**
      * Current class default template name.
      *
      * @var string
      */
     protected $_sThisTemplate = 'snAjaxSelectlist.tpl';
-    
-        public function renderSN()
-    {
+
+    public function renderSN() {
+
+	try {
+
+	    $config = $this->getConfig();
+	    parent::render();
 	    
+	    
+	    $this->_snPrice = 55;
+	    
+	} catch (Exception $exception) {
+	    throw $exception;
+	}
 
-
-                
-        
+	return $this->_sThisTemplate;
     }
+
+    public function getNewPrice() {
+	return 10;
+    }
+    
+    
 }
