@@ -36,8 +36,8 @@ $aModule = array(
 //	'ArticleSelectlistController' => \sn\oxidflaechenberechnung\Controller\ArticleSelectlistController::class,
     ),
     'templates' => array(
-	'flaechenberechnungadmin.tpl' => 'sn/oxidflaechenberechnung/views/admin/tpl/flaechenberechnungadmin.tpl',
-	'snAjaxSelectlist.tpl' => 'sn/oxidflaechenberechnung/views/snAjaxSelectlist.tpl',
+	//'flaechenberechnungadmin.tpl' => 'sn/oxidflaechenberechnung/views/admin/tpl/flaechenberechnungadmin.tpl',
+	//'snAjaxSelectlist.tpl' => 'sn/oxidflaechenberechnung/views/snAjaxSelectlist.tpl',
     ),
     'blocks' => array(
 /*	array(
