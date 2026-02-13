@@ -6,7 +6,7 @@
 /**
  * Metadata version
  */
-$sMetadataVersion = '2.0';
+$sMetadataVersion = '2.1';
 
 /**
  * Module information
@@ -22,7 +22,7 @@ $aModule = array(
 	'en' => '<h2>Flächenberechung</h2>',
     ),
     'thumbnail' => 'calc.png',
-    'version' => '1.0.18',
+    'version' => '1.0.19',
     'author' => 'Stefan Neidhart',
     'url' => 'https://www.stefanneidhart.de',
     'email' => 'info@stefanneidhart.de',
